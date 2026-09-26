@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerPath - Find Your Future</title>
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f6f8fc;
+    color:#172033;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#ffffff;
+    border-bottom:1px solid #e8ecf3;
+}
+
+.navbar{
+    max-width:1450px;
+    margin:auto;
+    min-height:72px;
+    padding:10px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:23px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.logo-box{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:5px;
+}
+
+.nav-links button{
+    border:0;
+    background:transparent;
+    padding:10px 12px;
+    border-radius:10px;
+    color:#526071;
+    font-weight:600;
+}
+
+.nav-links button:hover{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:#eff6ff;
+    color:#2563eb;
+    padding:10px 13px;
+    border-radius:10px;
+}
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:50px 25px;
+}
+
+.section-heading{
+    margin-bottom:30px;
+}
+
+.section-heading .small{
+    display:inline-block;
+    padding:6px 12px;
+    background:#eff6ff;
+    color:#2563eb;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.section-heading h1{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.section-heading p{
+    color:#667085;
+    max-width:800px;
+}
+
+.btn{
+    border:0;
+    border-radius:11px;
+    padding:12px 18px;
+    font-weight:700;
+}
+
+.primary{
+    background:#2563eb;
+    color:white;
+}
+
+.secondary{
+    background:white;
+    color:#2563eb;
+    border:1px solid #dbe3ef;
+}
+
+.notice{
+    padding:17px;
+    border-radius:15px;
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    color:#854d0e;
+    margin-bottom:25px;
+}
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.hero{
+    min-height:calc(100vh - 72px);
+    display:flex;
+    align-items:center;
+    background:
+        radial-gradient(circle at 10% 20%,#dbeafe,transparent 30%),
+        radial-gradient(circle at 90% 20%,#ede9fe,transparent 30%),
+        #f8fafc;
+}
+
+.hero-content{
+    max-width:1400px;
+    width:100%;
+    margin:auto;
+    padding:70px 25px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:clamp(45px,6vw,75px);
+    line-height:1.03;
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#2563eb,#7c3aed,#db2777);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    font-size:19px;
+    color:#667085;
+    max-width:680px;
+    margin-bottom:28px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.hero-box{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:28px;
+    padding:28px;
+    box-shadow:0 25px 60px rgba(37,99,235,.1);
+}
+
+.hero-box h2{
+    margin-bottom:20px;
+}
+
+.quick-item{
+    padding:15px;
+    background:#f8fafc;
+    border-radius:13px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.quick-item span{
+    font-size:14px;
+    color:#667085;
+}
+
+.stats{
+    max-width:1400px;
+    margin:auto;
+    padding:0 25px 50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:white;
+    padding:22px;
+    border-radius:17px;
+    border:1px solid #e5e7eb;
+}
+
+.stat strong{
+    display:block;
+    font-size:30px;
+    color:#2563eb;
+}
+
+/* =========================================================
+   STREAM
+========================================================= */
+
+.stream-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stream-card{
+    border-radius:24px;
+    padding:28px;
+    color:white;
+    min-height:320px;
+}
+
+.stream-card h2{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.stream-card p{
+    margin-bottom:12px;
+}
+
+.stream-card ul{
+    margin:10px 0 20px 20px;
+}
+
+.stream-card button{
+    border:0;
+    padding:11px 15px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.science{
+    background:linear-gradient(135deg,#2563eb,#4338ca);
+}
+
+.commerce{
+    background:linear-gradient(135deg,#059669,#047857);
+}
+
+.humanities{
+    background:linear-gradient(135deg,#db2777,#9333ea);
+}
+
+.steps{
+    display:grid;
+    gap:13px;
+    margin-top:30px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    border:1px solid #e5e7eb;
+}
+
+.step-number{
+    min-width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+}
+
+/* =========================================================
+   COURSES - SIMPLE UI
+========================================================= */
+
+.course-categories{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.category-btn{
+    border:1px solid #dce3ee;
+    background:white;
+    padding:11px 16px;
+    border-radius:50px;
+    color:#475569;
+    font-weight:600;
+}
+
+.category-btn.active,
+.category-btn:hover{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
+}
+
+.course-tools{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+.search{
+    border:1px solid #dbe2eb;
+    background:white;
+    border-radius:12px;
+    padding:14px 16px;
+    outline:none;
+    width:100%;
+}
+
+.search:focus{
+    border-color:#2563eb;
+}
+
+.course-count{
+    color:#667085;
+    margin-bottom:18px;
+}
+
+.simple-course-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.simple-course{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:20px;
+    transition:.2s;
+}
+
+.simple-course:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+
+.course-icon{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    background:#eff6ff;
+    border-radius:13px;
+    font-size:22px;
+    margin-bottom:14px;
+}
+
+.simple-course h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.simple-course p{
+    color:#667085;
+    font-size:13px;
+    min-height:40px;
+}
+
+.course-tags{
+    margin:12px 0;
+}
+
+.tag{
+    display:inline-block;
+    background:#f1f5f9;
+    color:#475569;
+    padding:5px 8px;
+    border-radius:7px;
+    font-size:11px;
+    margin:2px;
+}
+
+.view-course{
+    border:0;
+    background:#eff6ff;
+    color:#2563eb;
+    padding:9px 12px;
+    border-radius:9px;
+    font-weight:bold;
+    width:100%;
+}
+
+/* =========================================================
+   COURSE MODAL
+========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(15,23,42,.55);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    max-width:600px;
+    width:100%;
+    border-radius:22px;
+    padding:28px;
+    max-height:90vh;
+    overflow:auto;
+}
+
+.modal-close{
+    float:right;
+    border:0;
+    background:#f1f5f9;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+}
+
+.modal-box h2{
+    margin-bottom:10px;
+}
+
+.detail-list{
+    margin-top:20px;
+}
+
+.detail{
+    padding:13px;
+    background:#f8fafc;
+    border-radius:10px;
+    margin:8px 0;
+}
+
+/* =========================================================
+   CAREERS
+========================================================= */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.info-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    padding:23px;
+    border-radius:18px;
+}
+
+.info-icon{
+    width:48px;
+    height:48px;
+    border-radius:13px;
+    display:grid;
+    place-items:center;
+    background:#eff6ff;
+    font-size:22px;
+    margin-bottom:14px;
+}
+
+.info-card p{
+    color:#667085;
+    font-size:14px;
+    margin-top:7px;
+}
+
+/* =========================================================
+   EXAMS
+========================================================= */
+
+.exam-tools{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.exam-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:17px;
+}
+
+.exam{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:21px;
+}
+
+.exam-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.exam-type{
+    background:#ecfdf5;
+    color:#047857;
+    padding:5px 8px;
+    border-radius:7px;
+    font-size:10px;
+    height:max-content;
+    font-weight:bold;
+}
+
+.exam p{
+    color:#667085;
+    font-size:13px;
+    margin-top:9px;
+}
+
+.exam-info{
+    border-top:1px solid #edf0f4;
+    margin-top:13px;
+    padding-top:10px;
+}
+
+.exam-info div{
+    margin:5px 0;
+    font-size:13px;
+}
+
+/* =========================================================
+   UNIVERSITIES
+========================================================= */
+
+.uni-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.uni{
+    background:white;
+    border:1px solid #e5e7eb;
+    padding:18px;
+    border-radius:16px;
+}
+
+.uni-logo{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:#eff6ff;
+    color:#2563eb;
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.uni p{
+    color:#667085;
+    font-size:12px;
+}
+
+/* =========================================================
+   ROADMAP
+========================================================= */
+
+.road-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.road{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:19px;
+    padding:22px;
+}
+
+.path{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:7px;
+    margin-top:15px;
+}
+
+.path-item{
+    background:#eff6ff;
+    color:#1d4ed8;
+    padding:8px 10px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   FIND MY CAREER
+========================================================= */
+
+.career-finder{
+    max-width:850px;
+    margin:auto;
+}
+
+.finder-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.05);
+}
+
+.finder-progress{
+    height:8px;
+    background:#eef2f7;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.finder-progress span{
+    display:block;
+    height:100%;
+    width:0;
+    background:#2563eb;
+}
+
+.finder-question{
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.finder-option{
+    width:100%;
+    text-align:left;
+    padding:15px;
+    margin:7px 0;
+    border:1px solid #dce3ed;
+    background:white;
+    border-radius:12px;
+}
+
+.finder-option:hover{
+    background:#eff6ff;
+    border-color:#2563eb;
+}
+
+.result-box{
+    display:none;
+}
+
+.result-pill{
+    display:inline-block;
+    padding:10px 13px;
+    background:#eff6ff;
+    color:#2563eb;
+    border-radius:10px;
+    font-weight:bold;
+    margin:4px;
+}
+
+/* =========================================================
+   MEMES
+========================================================= */
+
+.meme-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.meme{
+    min-height:250px;
+    padding:24px;
+    border-radius:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+}
+
+.meme:nth-child(2){
+    background:#eff6ff;
+    border-color:#bfdbfe;
+}
+
+.meme:nth-child(3){
+    background:#fdf2f8;
+    border-color:#fbcfe8;
+}
+
+.meme:nth-child(4){
+    background:#ecfdf5;
+    border-color:#a7f3d0;
+}
+
+.meme:nth-child(5){
+    background:#f5f3ff;
+    border-color:#ddd6fe;
+}
+
+.meme:nth-child(6){
+    background:#fefce8;
+    border-color:#fde68a;
+}
+
+.meme-emoji{
+    font-size:50px;
+}
+
+.meme-text{
+    font-size:20px;
+    font-weight:800;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    margin-top:40px;
+    background:#111827;
+    color:#d1d5db;
+    padding:45px 25px;
+}
+
+.footer-inner{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+footer p{
+    font-size:13px;
+    margin:4px 0;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:white;
+        padding:12px;
+        flex-direction:column;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links button{
+        width:100%;
+        text-align:left;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .stream-grid,
+    .card-grid,
+    .simple-course-grid,
+    .meme-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .uni-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .container{
+        padding:35px 16px;
+    }
+
+    .section-heading h1{
+        font-size:35px;
+    }
+
+    .hero-content{
+        padding:45px 16px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+        padding:0 16px 35px;
+    }
+
+    .stream-grid,
+    .card-grid,
+    .simple-course-grid,
+    .exam-grid,
+    .uni-grid,
+    .road-grid,
+    .meme-grid{
+        grid-template-columns:1fr;
+    }
+
+    .course-tools,
+    .exam-tools{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+<div class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">
+            🎓
+        </div>
+
+        CareerPath
+
+    </div>
+
+
+    <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </button>
+
+
+    <div class="nav-links" id="navLinks">
+
+        <button onclick="showPage('home')">
+            🏠 Home
+        </button>
+
+        <button onclick="showPage('stream')">
+            🧭 10th → Stream
+        </button>
+
+        <button onclick="showPage('courses')">
+            🎓 Courses
+        </button>
+
+        <button onclick="showPage('careers')">
+            📈 Careers
+        </button>
+
+        <button onclick="showPage('exams')">
+            📝 Exams
+        </button>
+
+        <button onclick="showPage('universities')">
+            🏫 Universities
+        </button>
+
+        <button onclick="showPage('roadmaps')">
+            🛣️ Roadmaps
+        </button>
+
+        <button onclick="showPage('finder')">
+            ✨ Find My Career
+        </button>
+
+        <button onclick="showPage('memes')">
+            😂 Memes
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-content">
+
+<div>
+
+<h1>
+
+Find the right
+<span class="gradient">
+path for your future.
+</span>
+
+</h1>
+
+<p>
+
+CareerPath helps students explore streams, courses,
+entrance exams, universities and career paths without
+getting lost in hundreds of confusing options.
+
+</p>
+
+
+<div class="hero-actions">
+
+<button
+class="btn primary"
+onclick="showPage('finder')">
+
+✨ Find My Career
+
+</button>
+
+
+<button
+class="btn secondary"
+onclick="showPage('stream')">
+
+🧭 I Passed Class 10
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-box">
+
+<h2>Explore CareerPath</h2>
+
+
+<div class="quick-item">
+
+<div>
+<strong>🎓 Courses</strong>
+<br>
+<span>500+ options</span>
+</div>
+
+<strong>→</strong>
+
+</div>
+
+
+<div class="quick-item">
+
+<div>
+<strong>📝 Entrance Exams</strong>
+<br>
+<span>70+ exams</span>
+</div>
+
+<strong>→</strong>
+
+</div>
+
+
+<div class="quick-item">
+
+<div>
+<strong>🏫 Universities</strong>
+<br>
+<span>60+ institutions</span>
+</div>
+
+<strong>→</strong>
+
+</div>
+
+
+<div class="quick-item">
+
+<div>
+<strong>✨ Find My Career</strong>
+<br>
+<span>Interactive questions</span>
+</div>
+
+<strong>→</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong>500+</strong>
+Course options
+</div>
+
+<div class="stat">
+<strong>70+</strong>
+Entrance exams
+</div>
+
+<div class="stat">
+<strong>60+</strong>
+Universities
+</div>
+
+<div class="stat">
+<strong>8</strong>
+Career domains
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     STREAM
+========================================================= -->
+
+<section id="stream" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+🧭 AFTER CLASS 10
+</span>
+
+<h1>
+Choose your stream
+</h1>
+
+<p>
+If you have just completed Class 10, start by understanding
+what each stream can lead to.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<strong>Remember:</strong>
+There is no universal “best” stream. Check your interests,
+subjects, future course requirements and the subjects offered
+by your school.
+
+</div>
+
+
+<div class="stream-grid">
+
+
+<div class="stream-card science">
+
+<h2>🔬 Science</h2>
+
+<p>
+Good to explore if you are interested in:
+</p>
+
+<ul>
+<li>Engineering</li>
+<li>Medicine</li>
+<li>Technology</li>
+<li>Pure Science</li>
+<li>Architecture</li>
+</ul>
+
+<button onclick="filterCourses('Science')">
+View Science Courses
+</button>
+
+</div>
+
+
+<div class="stream-card commerce">
+
+<h2>💼 Commerce</h2>
+
+<p>
+Good to explore if you are interested in:
+</p>
+
+<ul>
+<li>Business</li>
+<li>Finance</li>
+<li>Accounting</li>
+<li>Economics</li>
+<li>Management</li>
+</ul>
+
+<button onclick="filterCourses('Commerce')">
+View Commerce Courses
+</button>
+
+</div>
+
+
+<div class="stream-card humanities">
+
+<h2>🎨 Humanities</h2>
+
+<p>
+Good to explore if you are interested in:
+</p>
+
+<ul>
+<li>Law</li>
+<li>Psychology</li>
+<li>Media</li>
+<li>Design</li>
+<li>Social Sciences</li>
+</ul>
+
+<button onclick="filterCourses('Humanities')">
+View Humanities Courses
+</button>
+
+</div>
+
+</div>
+
+
+<div class="section-heading" style="margin-top:55px">
+
+<h2>
+Your path after Class 10
+</h2>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">1</div>
+
+<div>
+
+<h3>Know yourself</h3>
+
+<p>
+Identify the subjects and activities you enjoy.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">2</div>
+
+<div>
+
+<h3>Check requirements</h3>
+
+<p>
+Some future courses require specific Class 11–12 subjects.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">3</div>
+
+<div>
+
+<h3>Choose Science, Commerce or Humanities</h3>
+
+<p>
+Choose the stream that keeps the pathways relevant to
+your interests open.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">4</div>
+
+<div>
+
+<h3>Explore courses</h3>
+
+<p>
+Compare degrees, duration, careers and higher-study options.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">5</div>
+
+<div>
+
+<h3>Find entrance exams</h3>
+
+<p>
+Check which exams can be used for your target course.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COURSES
+========================================================= -->
+
+<section id="courses" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+🎓 COURSE EXPLORER
+</span>
+
+<h1>
+Find a course
+</h1>
+
+<p>
+Don't worry about hundreds of choices. Start with a stream
+or search for something you already have in mind.
+</p>
+
+</div>
+
+
+<!-- SIMPLE CATEGORY BUTTONS -->
+
+<div class="course-categories">
+
+<button
+class="category-btn active"
+onclick="setCourseCategory('All',this)">
+All
+</button>
+
+<button
+class="category-btn"
+onclick="setCourseCategory('Science',this)">
+🔬 Science
+</button>
+
+<button
+class="category-btn"
+onclick="setCourseCategory('Commerce',this)">
+💼 Commerce
+</button>
+
+<button
+class="category-btn"
+onclick="setCourseCategory('Humanities',this)">
+🎨 Humanities
+</button>
+
+<button
+class="category-btn"
+onclick="setCourseCategory('Creative',this)">
+✨ Creative
+</button>
+
+<button
+class="category-btn"
+onclick="setCourseCategory('Professional',this)">
+🏆 Professional
+</button>
+
+</div>
+
+
+<div class="course-tools">
+
+<input
+id="courseSearch"
+class="search"
+placeholder="🔎 Search for a course..."
+oninput="renderCourses()"
+>
+
+
+<select
+id="courseDomain"
+class="search"
+onchange="renderCourses()">
+
+<option value="All">
+All areas
+</option>
+
+<option value="Technology">
+Technology
+</option>
+
+<option value="Business">
+Business
+</option>
+
+<option value="Science">
+Science
+</option>
+
+<option value="Healthcare">
+Healthcare
+</option>
+
+<option value="Humanities">
+Humanities
+</option>
+
+<option value="Design">
+Design
+</option>
+
+<option value="Law">
+Law
+</option>
+
+<option value="Education">
+Education
+</option>
+
+<option value="Hospitality">
+Hospitality
+</option>
+
+</select>
+
+</div>
+
+
+<div id="courseCount" class="course-count"></div>
+
+
+<div id="courseGrid" class="simple-course-grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CAREERS
+========================================================= -->
+
+<section id="careers" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+📈 CAREER AREAS
+</span>
+
+<h1>
+Explore career directions
+</h1>
+
+<p>
+Explore different career areas, example degrees and
+possible higher-study routes.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+Salary information is indicative only. Actual salary varies
+by location, employer, skills, experience and year.
+“Job security” is not a guarantee and can vary by sector.
+
+</div>
+
+
+<div id="careerGrid" class="card-grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     EXAMS
+========================================================= -->
+
+<section id="exams" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+📝 ENTRANCE EXAMS
+</span>
+
+<h1>
+Find your entrance exam
+</h1>
+
+<p>
+Search exams by name or course area and understand what
+they are generally used for.
+</p>
+
+</div>
+
+
+<div class="exam-tools">
+
+<input
+id="examSearch"
+class="search"
+placeholder="🔎 Search exam..."
+oninput="renderExams()"
+>
+
+
+<select
+id="examLevel"
+class="search"
+onchange="renderExams()">
+
+<option value="All">
+All levels
+</option>
+
+<option value="UG">
+Undergraduate
+</option>
+
+<option value="PG">
+Postgraduate
+</option>
+
+<option value="Professional">
+Professional
+</option>
+
+</select>
+
+</div>
+
+
+<div id="examCount" class="course-count"></div>
+
+<div id="examGrid" class="exam-grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     UNIVERSITIES
+========================================================= -->
+
+<section id="universities" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+🏫 UNIVERSITIES
+</span>
+
+<h1>
+Explore universities
+</h1>
+
+<p>
+Search universities and institutions by name.
+</p>
+
+</div>
+
+
+<input
+id="uniSearch"
+class="search"
+placeholder="🔎 Search university..."
+oninput="renderUniversities()"
+style="margin-bottom:25px"
+>
+
+
+<div id="uniGrid" class="uni-grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ROADMAPS
+========================================================= -->
+
+<section id="roadmaps" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+🛣️ CAREER ROADMAPS
+</span>
+
+<h1>
+See the bigger picture
+</h1>
+
+<p>
+Understand how a degree can connect to skills, jobs and
+higher studies.
+</p>
+
+</div>
+
+
+<div id="roadGrid" class="road-grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FIND MY CAREER
+========================================================= -->
+
+<section id="finder" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+✨ FIND MY CAREER
+</span>
+
+<h1>
+What career area could suit you?
+</h1>
+
+<p>
+Answer the questions based on what you genuinely enjoy.
+Your result is a starting point for exploration, not a
+professional aptitude assessment.
+</p>
+
+</div>
+
+
+<div class="career-finder">
+
+<div class="finder-card">
+
+<div class="finder-progress">
+<span id="finderProgress"></span>
+</div>
+
+
+<div id="finderQuestion"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MEMES
+========================================================= -->
+
+<section id="memes" class="page">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="small">
+😂 STUDENT CORNER
+</span>
+
+<h1>
+Career memes
+</h1>
+
+<p>
+Because career planning can be stressful enough already.
+</p>
+
+</div>
+
+
+<div class="meme-grid">
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+🧠💻
+</div>
+
+<div class="meme-text">
+10th result is out.<br>
+Brain: Career planning.exe loading...
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+👨‍👩‍👦😭
+</div>
+
+<div class="meme-text">
+Parent: Doctor or Engineer?<br>
+Me: I am still choosing my stream.
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+📚😵
+</div>
+
+<div class="meme-text">
+Entrance exam season:<br>
+Sleep.exe not found.
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+🎯✨
+</div>
+
+<div class="meme-text">
+When you finally find a course
+that matches your interests:
+WE HAVE A PLAN!
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+🤯📖
+</div>
+
+<div class="meme-text">
+Me: Show me career options.<br>
+Website: 500+ courses.<br>
+Me: 😭
+</div>
+
+</div>
+
+
+<div class="meme">
+
+<div class="meme-emoji">
+🚀🎓
+</div>
+
+<div class="meme-text">
+Career choice should be a plan,
+not a panic button.
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COURSE DETAILS MODAL
+========================================================= -->
+
+<div class="modal" id="courseModal">
+
+<div class="modal-box">
+
+<button
+class="modal-close"
+onclick="closeCourse()">
+✕
+</button>
+
+<div id="courseDetails"></div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div>
+
+<h3>🎓 CareerPath</h3>
+
+<p>
+A simple career exploration platform for students.
+</p>
+
+</div>
+
+<div>
+
+<h3>Explore</h3>
+
+<p>Courses</p>
+<p>Entrance Exams</p>
+<p>Universities</p>
+<p>Find My Career</p>
+
+</div>
+
+<div>
+
+<h3>Important</h3>
+
+<p>
+Admission requirements and exam rules can change.
+Always verify current official information.
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function showPage(id){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    document.getElementById("navLinks")
+        .classList.remove("show");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(id==="courses") renderCourses();
+    if(id==="careers") renderCareers();
+    if(id==="exams") renderExams();
+    if(id==="universities") renderUniversities();
+    if(id==="roadmaps") renderRoadmaps();
+
+}
+
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+
+}
+
+
+/* =========================================================
+   COURSES
+========================================================= */
+
+const baseCourses=[
+
+["B.Sc Computer Science","Science","Technology","💻"],
+["B.Sc Information Technology","Science","Technology","💻"],
+["B.Sc Data Science","Science","Technology","📊"],
+["B.Sc Artificial Intelligence","Science","Technology","🤖"],
+["B.Sc Statistics","Science","Science","📈"],
+["B.Sc Mathematics","Science","Science","🔢"],
+["B.Sc Physics","Science","Science","⚛️"],
+["B.Sc Chemistry","Science","Science","🧪"],
+["B.Sc Biotechnology","Science","Science","🧬"],
+["B.Sc Microbiology","Science","Science","🔬"],
+["B.Sc Biochemistry","Science","Science","🧪"],
+["B.Sc Environmental Science","Science","Science","🌱"],
+["B.Sc Geology","Science","Science","🌍"],
+["B.Sc Geophysics","Science","Science","🌎"],
+["B.Sc Electronics","Science","Technology","🔌"],
+["BCA","Science","Technology","💻"],
+["B.Tech Computer Science Engineering","Science","Technology","💻"],
+["B.Tech Information Technology","Science","Technology","💻"],
+["B.Tech Artificial Intelligence & Data Science","Science","Technology","🤖"],
+["B.Tech Electronics & Communication","Science","Technology","📡"],
+["B.Tech Electrical Engineering","Science","Technology","⚡"],
+["B.Tech Mechanical Engineering","Science","Technology","⚙️"],
+["B.Tech Civil Engineering","Science","Technology","🏗️"],
+["B.Tech Chemical Engineering","Science","Science","🧪"],
+["B.Tech Biotechnology","Science","Healthcare","🧬"],
+["B.Tech Aerospace Engineering","Science","Technology","🚀"],
+["B.Tech Biomedical Engineering","Science","Healthcare","🏥"],
+["B.Pharm","Science","Healthcare","💊"],
+["B.Sc Nursing","Science","Healthcare","🩺"],
+["Bachelor of Physiotherapy","Science","Healthcare","🏃"],
+["B.Sc Agriculture","Science","Science","🌾"],
+["B.Sc Food Technology","Science","Science","🍎"],
+
+["B.Com","Commerce","Business","💰"],
+["B.Com Honours","Commerce","Business","📚"],
+["BBA","Commerce","Business","💼"],
+["BMS","Commerce","Business","📊"],
+["BBM","Commerce","Business","💼"],
+["BBA Finance","Commerce","Business","💰"],
+["BBA Human Resources","Commerce","Business","👥"],
+["BBA Marketing","Commerce","Business","📣"],
+["BBA Business Analytics","Commerce","Technology","📊"],
+["BBA International Business","Commerce","Business","🌎"],
+["B.Sc Economics","Commerce","Business","📈"],
+["B.A. Economics","Commerce","Humanities","📈"],
+["Bachelor of Accounting & Finance","Commerce","Business","🧾"],
+["Integrated BBA + MBA","Commerce","Business","🎓"],
+["Bachelor of Hotel Management","Commerce","Hospitality","🏨"],
+["Bachelor of Travel & Tourism Management","Commerce","Hospitality","✈️"],
+
+["B.A. English","Humanities","Humanities","📖"],
+["B.A. Psychology","Humanities","Humanities","🧠"],
+["B.A. Sociology","Humanities","Humanities","👥"],
+["B.A. Political Science","Humanities","Humanities","🏛️"],
+["B.A. History","Humanities","Humanities","📜"],
+["B.A. Geography","Humanities","Humanities","🌍"],
+["B.A. Philosophy","Humanities","Humanities","💭"],
+["B.A. Journalism & Mass Communication","Humanities","Humanities","📰"],
+["BJMC","Humanities","Humanities","🎤"],
+["B.A. Public Administration","Humanities","Humanities","🏛️"],
+["B.A. International Relations","Humanities","Humanities","🌎"],
+["B.A. Social Work","Humanities","Humanities","🤝"],
+["Bachelor of Social Work","Humanities","Humanities","🤝"],
+["Bachelor of Library Science","Humanities","Humanities","📚"],
+["Bachelor of Fine Arts","Humanities","Design","🎨"],
+["BFA","Humanities","Design","🖌️"],
+
+["B.Des","Creative","Design","🎨"],
+["B.F.Tech","Creative","Design","👗"],
+["Fashion Design","Creative","Design","👗"],
+["Interior Design","Creative","Design","🏠"],
+["Animation","Creative","Design","🎬"],
+["VFX","Creative","Design","🎥"],
+["Film & Television","Creative","Design","🎞️"],
+["Music","Creative","Design","🎵"],
+["Theatre","Creative","Design","🎭"],
+["Photography","Creative","Design","📷"],
+
+["LLB","Professional","Law","⚖️"],
+["BA LLB","Humanities","Law","⚖️"],
+["BBA LLB","Commerce","Law","⚖️"],
+["B.Com LLB","Commerce","Law","⚖️"],
+
+["MBBS","Science","Healthcare","🩺"],
+["BDS","Science","Healthcare","🦷"],
+["BAMS","Science","Healthcare","🌿"],
+["BHMS","Science","Healthcare","🏥"],
+["BUMS","Science","Healthcare","🩺"],
+["Occupational Therapy","Science","Healthcare","❤️"],
+["Audiology & Speech Language Pathology","Science","Healthcare","🗣️"],
+["Optometry","Science","Healthcare","👁️"],
+
+["BA B.Ed","Humanities","Education","📚"],
+["B.Sc B.Ed","Science","Education","👨‍🏫"],
+["B.El.Ed","Humanities","Education","🏫"],
+["D.El.Ed","Humanities","Education","📘"],
+
+["Bachelor of Hospitality Management","Commerce","Hospitality","🏨"],
+["Bachelor of Culinary Arts","Commerce","Hospitality","👨‍🍳"],
+["Bachelor of Tourism Management","Commerce","Hospitality","✈️"]
+
+];
+
+
+const specializations={
+
+Technology:[
+"Artificial Intelligence",
+"Data Science",
+"Cybersecurity",
+"Cloud Computing",
+"IoT",
+"Software Engineering",
+"Business Analytics",
+"FinTech"
+],
+
+Business:[
+"Finance",
+"Marketing",
+"Human Resources",
+"Business Analytics",
+"International Business",
+"Entrepreneurship",
+"FinTech",
+"Operations"
+],
+
+Science:[
+"Data Science",
+"Artificial Intelligence",
+"Bioinformatics",
+"Environmental Science",
+"Research",
+"Statistics",
+"Computational Science",
+"Industrial Applications"
+],
+
+Humanities:[
+"Digital Media",
+"Public Policy",
+"International Relations",
+"Journalism",
+"Psychology",
+"Economics",
+"Sociology",
+"Cultural Studies"
+],
+
+Design:[
+"UX/UI",
+"Product Design",
+"Fashion",
+"Interior",
+"Animation",
+"Game Design",
+"Communication Design",
+"Visual Design"
+],
+
+Healthcare:[
+"Clinical Research",
+"Healthcare Management",
+"Public Health",
+"Biomedical",
+"Hospital Administration",
+"Health Informatics",
+"Nutrition",
+"Rehabilitation"
+],
+
+Law:[
+"Corporate Law",
+"Criminal Law",
+"Intellectual Property",
+"Cyber Law",
+"Human Rights",
+"Tax Law",
+"International Law",
+"Commercial Law"
+],
+
+Education:[
+"STEM Education",
+"English Education",
+"Special Education",
+"Early Childhood",
+"Educational Technology",
+"Inclusive Education",
+"Psychology",
+"Curriculum Studies"
+],
+
+Hospitality:[
+"Hospitality Management",
+"Tourism",
+"Event Management",
+"Culinary",
+"Travel Technology",
+"Hotel Operations",
+"Luxury Hospitality",
+"Aviation"
+]
+
+};
+
+
+let courses=[];
+
+baseCourses.forEach(course=>{
+
+    let name=course[0];
+    let stream=course[1];
+    let domain=course[2];
+    let icon=course[3];
+
+    courses.push({
+        name:name,
+        stream:stream,
+        domain:domain,
+        icon:icon,
+        specialization:"General"
+    });
+
+    let specs=specializations[domain] || [];
+
+    specs.forEach(spec=>{
+
+        courses.push({
+            name:name+" - "+spec,
+            stream:stream,
+            domain:domain,
+            icon:icon,
+            specialization:spec
+        });
+
+    });
+
+});
+
+
+let selectedCourseCategory="All";
+
+
+function setCourseCategory(category,button){
+
+    selectedCourseCategory=category;
+
+    document.querySelectorAll(".category-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    renderCourses();
+
+}
+
+
+function filterCourses(stream){
+
+    showPage("courses");
+
+    selectedCourseCategory=stream;
+
+    document.querySelectorAll(".category-btn")
+        .forEach(btn=>{
+
+            btn.classList.remove("active");
+
+            if(btn.innerText.includes(stream)){
+                btn.classList.add("active");
+            }
+
+        });
+
+    renderCourses();
+
+}
+
+
+function renderCourses(){
+
+    let search=document
+        .getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    let domain=document
+        .getElementById("courseDomain")
+        .value;
+
+
+    let filtered=courses.filter(course=>{
+
+        let searchMatch=
+            course.name
+            .toLowerCase()
+            .includes(search);
+
+        let categoryMatch=
+            selectedCourseCategory==="All" ||
+            course.stream===selectedCourseCategory;
+
+        let domainMatch=
+            domain==="All" ||
+            course.domain===domain;
+
+        return searchMatch &&
+               categoryMatch &&
+               domainMatch;
+
+    });
+
+
+    document.getElementById("courseCount").innerText=
+        filtered.length+
+        " course and specialization options found";
+
+
+    document.getElementById("courseGrid").innerHTML=
+
+        filtered.map((course,index)=>`
+
+        <div class="simple-course">
+
+            <div class="course-icon">
+                ${course.icon}
+            </div>
+
+            <h3>
+                ${course.name}
+            </h3>
+
+            <p>
+                ${course.domain} course
+            </p>
+
+            <div class="course-tags">
+
+                <span class="tag">
+                    ${course.stream}
+                </span>
+
+                <span class="tag">
+                    ${course.specialization}
+                </span>
+
+            </div>
+
+            <button
+                class="view-course"
+                onclick="openCourse(${courses.indexOf(course)})">
+
+                View Details
+
+            </button>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   COURSE DETAILS
+========================================================= */
+
+function openCourse(index){
+
+    let course=courses[index];
+
+    document.getElementById("courseDetails").innerHTML=`
+
+        <div class="course-icon">
+            ${course.icon}
+        </div>
+
+        <h2>${course.name}</h2>
+
+        <p style="color:#667085">
+            ${course.domain} · ${course.stream}
+        </p>
+
+        <div class="detail-list">
+
+            <div class="detail">
+                <strong>🎓 Level</strong>
+                Undergraduate
+            </div>
+
+            <div class="detail">
+                <strong>⏱️ Typical duration</strong>
+                Usually 3–4 years
+            </div>
+
+            <div class="detail">
+                <strong>📚 Higher study options</strong>
+                Master's degree, professional qualifications,
+                MBA or related postgraduate study depending
+                on the course.
+            </div>
+
+            <div class="detail">
+                <strong>💼 Career direction</strong>
+                Depends on your specialization, skills,
+                internships and chosen sector.
+            </div>
+
+            <div class="detail">
+                <strong>📌 Important</strong>
+                Exact eligibility, duration and specialization
+                availability vary between universities.
+            </div>
+
+        </div>
+
+    `;
+
+    document
+        .getElementById("courseModal")
+        .classList.add("show");
+
+}
+
+
+function closeCourse(){
+
+    document
+        .getElementById("courseModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CAREERS
+========================================================= */
+
+const careers=[
+
+["🤖","AI & Machine Learning",
+"Strong demand in selected sectors",
+"₹4–25+ LPA indicative range",
+"B.Tech / B.Sc / BCA → M.Tech / M.Sc / MS",
+"AI Engineer, ML Engineer, Data roles"],
+
+["💻","Software & Cloud",
+"Skill-dependent",
+"₹3–25+ LPA indicative range",
+"B.Tech / BCA / B.Sc → MCA / M.Tech / MS",
+"Software Developer, Cloud, DevOps"],
+
+["📊","Data & Analytics",
+"Strong demand in selected sectors",
+"₹3–20+ LPA indicative range",
+"B.Sc / B.Tech / BBA → M.Sc / MBA / MS",
+"Data Analyst, BI Analyst, Data Scientist"],
+
+["🏥","Healthcare",
+"Structured professional pathways",
+"Varies by qualification",
+"Relevant healthcare degree → PG specialization",
+"Doctor, Nurse, Pharmacist, Therapist"],
+
+["💰","Finance & Accounting",
+"Sector-dependent",
+"₹3–20+ LPA indicative range",
+"B.Com / BBA → CA / CMA / MBA / M.Com",
+"Accountant, Auditor, Analyst"],
+
+["⚖️","Law",
+"Depends on specialization and practice",
+"Highly variable",
+"BA LLB / BBA LLB / LLB → LLM",
+"Advocate, Legal Analyst, Corporate Legal"],
+
+["🎨","Design & Media",
+"Portfolio and skill-dependent",
+"₹2.5–15+ LPA indicative range",
+"B.Des / BFA / Media → M.Des / MA / MBA",
+"Designer, UX, Animator, Media"],
+
+["🌱","Agriculture & Environment",
+"Sector-dependent",
+"₹2.5–12+ LPA indicative range",
+"B.Sc → M.Sc / MBA",
+"Agronomist, Researcher, Consultant"],
+
+["📚","Education",
+"Structured qualification pathways",
+"Varies by institution and role",
+"BA B.Ed / B.Sc B.Ed → MA / M.Ed",
+"Teacher, Coordinator, Education roles"]
+
+];
+
+
+function renderCareers(){
+
+    document.getElementById("careerGrid").innerHTML=
+
+        careers.map(c=>`
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                ${c[0]}
+            </div>
+
+            <h3>
+                ${c[1]}
+            </h3>
+
+            <p>
+                <strong>Demand:</strong>
+                ${c[2]}
+            </p>
+
+            <p>
+                <strong>Salary:</strong>
+                ${c[3]}
+            </p>
+
+            <p>
+                <strong>Higher study:</strong>
+                ${c[4]}
+            </p>
+
+            <p>
+                <strong>Example careers:</strong>
+                ${c[5]}
+            </p>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   ENTRANCE EXAMS
+========================================================= */
+
+const exams=[
+
+["JEE Main","UG","Engineering","NTA"],
+["JEE Advanced","UG","Engineering","IIT system"],
+["NEET UG","UG","Medical","NTA"],
+["CUET UG","UG","Multi-disciplinary","NTA"],
+["NATA","UG","Architecture","Council of Architecture"],
+["CLAT","UG","Law","Consortium of NLUs"],
+["AILET","UG","Law","NLU Delhi"],
+["NCHM JEE","UG","Hospitality","NTA / NCHMCT"],
+["UCEED","UG","Design","IIT Bombay"],
+["NID DAT","UG","Design","NID"],
+["NIFT Entrance","UG","Fashion / Design","NIFT"],
+["NEST","UG","Science","NISER / CEBS"],
+["IISER Aptitude Test","UG","Science","IISERs"],
+["BITSAT","UG","Engineering / Science","BITS Pilani"],
+["VITEEE","UG","Engineering","VIT"],
+["SRMJEEE","UG","Engineering","SRM"],
+["MET","UG","Engineering","Manipal"],
+["COMEDK UGET","UG","Engineering","COMEDK"],
+["WBJEE","UG","Engineering","West Bengal"],
+["MHT CET","UG","Engineering / Pharmacy","Maharashtra CET"],
+["KCET","UG","Engineering / Pharmacy","KEA"],
+["KEAM","UG","Engineering","CEE Kerala"],
+["AP EAPCET","UG","Engineering / Agriculture","APSCHE"],
+["TS EAPCET","UG","Engineering / Agriculture","Telangana"],
+["OJEE","UG","Engineering / Management","Odisha"],
+["GUJCET","UG","Engineering / Pharmacy","Gujarat"],
+["AEEE","UG","Engineering","Amrita"],
+["KIITEE","UG","Engineering / Other","KIIT"],
+["UPESEAT","UG","Engineering","UPES"],
+["SET","UG","Multi-disciplinary","Symbiosis"],
+["NPAT","UG","Management","NMIMS"],
+["Christ University Entrance","UG","Multi-disciplinary","Christ University"],
+["IPMAT Indore","UG","Management","IIM Indore"],
+["IPMAT Rohtak","UG","Management","IIM Rohtak"],
+["JIPMAT","UG","Management","IIM Jammu / IIM Bodh Gaya"],
+["UGAT","UG","Management","AIMA"],
+["CAT","PG","Management","IIMs / participating institutions"],
+["XAT","PG","Management","XLRI"],
+["CMAT","PG","Management","NTA"],
+["MAT","PG","Management","AIMA"],
+["ATMA","PG","Management","AIMS"],
+["SNAP","PG","Management","Symbiosis"],
+["NMAT","PG","Management","GMAC / participating institutions"],
+["MAH MBA CET","PG","Management","Maharashtra CET"],
+["TANCET","PG","Management / PG","Tamil Nadu"],
+["AP ICET","PG","Management","Andhra Pradesh"],
+["TS ICET","PG","Management","Telangana"],
+["KMAT Kerala","PG","Management","CEE Kerala"],
+["KMAT Karnataka","PG","Management","Karnataka"],
+["IBSAT","PG","Management","ICFAI"],
+["NIMCET","PG","Computer Applications","NITs / participating institutions"],
+["MAH MCA CET","PG","Computer Applications","Maharashtra CET"],
+["GATE","PG","Engineering / Science","IITs / IISc"],
+["IIT JAM","PG","Science","IITs"],
+["CUET PG","PG","Multi-disciplinary","NTA"],
+["GPAT","PG","Pharmacy","NTA"],
+["AIAPGET","PG","AYUSH","NTA"],
+["NEET PG","Professional","Medical","NBEMS"],
+["INI-CET","Professional","Medical","AIIMS / INIs"],
+["NEET MDS","Professional","Dental","NBEMS"],
+["FDDI AIST","UG","Design / Fashion","FDDI"],
+["AMU Admissions","UG","Multi-disciplinary","AMU"],
+["CUCET","UG","Multi-disciplinary","Chandigarh University"],
+["Ashoka University Admissions","UG","Liberal Arts","Ashoka University"],
+["FLAME University Admissions","UG","Liberal Arts","FLAME University"]
+
+];
+
+
+function renderExams(){
+
+    let search=document
+        .getElementById("examSearch")
+        .value
+        .toLowerCase();
+
+    let level=document
+        .getElementById("examLevel")
+        .value;
+
+
+    let filtered=exams.filter(e=>
+
+        e.join(" ")
+        .toLowerCase()
+        .includes(search)
+
+        &&
+
+        (level==="All" || e[1]===level)
+
+    );
+
+
+    document.getElementById("examCount").innerText=
+        filtered.length+" entrance exams";
+
+
+    document.getElementById("examGrid").innerHTML=
+
+        filtered.map((e,index)=>`
+
+        <div class="exam">
+
+            <div class="exam-top">
+
+                <h3>
+                    ${index+1}. ${e[0]}
+                </h3>
+
+                <span class="exam-type">
+                    ${e[1]}
+                </span>
+
+            </div>
+
+            <p>
+                <strong>Area:</strong>
+                ${e[2]}
+            </p>
+
+            <div class="exam-info">
+
+                <div>
+                    🏛️ <strong>Conducting body:</strong>
+                    ${e[3]}
+                </div>
+
+                <div>
+                    📚 <strong>Used for:</strong>
+                    ${e[2]} programmes
+                </div>
+
+                <div>
+                    ⚠️ <strong>Check:</strong>
+                    Current eligibility and admission notification
+                </div>
+
+            </div>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   UNIVERSITIES
+========================================================= */
+
+const universities=[
+
+["IIT Bombay","Institute","Maharashtra"],
+["IIT Delhi","Institute","Delhi"],
+["IIT Madras","Institute","Tamil Nadu"],
+["IIT Kanpur","Institute","Uttar Pradesh"],
+["IIT Kharagpur","Institute","West Bengal"],
+["IIT Hyderabad","Institute","Telangana"],
+["IIT Guwahati","Institute","Assam"],
+["IIT Roorkee","Institute","Uttarakhand"],
+["IISc Bangalore","Institute","Karnataka"],
+["IISER Pune","Institute","Maharashtra"],
+["IISER Kolkata","Institute","West Bengal"],
+["IISER Mohali","Institute","Punjab"],
+["NIT Trichy","Institute","Tamil Nadu"],
+["NIT Surathkal","Institute","Karnataka"],
+["NIT Warangal","Institute","Telangana"],
+["NIT Calicut","Institute","Kerala"],
+["University of Delhi","Central","Delhi"],
+["Jawaharlal Nehru University","Central","Delhi"],
+["Banaras Hindu University","Central","Uttar Pradesh"],
+["Jamia Millia Islamia","Central","Delhi"],
+["Aligarh Muslim University","Central","Uttar Pradesh"],
+["University of Hyderabad","Central","Telangana"],
+["University of Kerala","State","Kerala"],
+["University of Calicut","State","Kerala"],
+["Mahatma Gandhi University","State","Kerala"],
+["Cochin University of Science and Technology","State","Kerala"],
+["Anna University","State","Tamil Nadu"],
+["University of Mumbai","State","Maharashtra"],
+["Savitribai Phule Pune University","State","Maharashtra"],
+["University of Calcutta","State","West Bengal"],
+["Jadavpur University","State","West Bengal"],
+["University of Madras","State","Tamil Nadu"],
+["Bangalore University","State","Karnataka"],
+["Osmania University","State","Telangana"],
+["Andhra University","State","Andhra Pradesh"],
+["University of Rajasthan","State","Rajasthan"],
+["Panjab University","State","Punjab"],
+["BITS Pilani","Private","Rajasthan"],
+["Manipal Academy of Higher Education","Private","Karnataka"],
+["VIT","Private","Tamil Nadu"],
+["SRM Institute of Science and Technology","Private","Tamil Nadu"],
+["Amity University","Private","Uttar Pradesh"],
+["Christ University","Private","Karnataka"],
+["Symbiosis International","Private","Maharashtra"],
+["NMIMS","Private","Maharashtra"],
+["KIIT","Private","Odisha"],
+["UPES","Private","Uttarakhand"],
+["Lovely Professional University","Private","Punjab"],
+["Chandigarh University","Private","Punjab"],
+["Ashoka University","Private","Haryana"],
+["Shiv Nadar University","Private","Uttar Pradesh"],
+["OP Jindal Global University","Private","Haryana"],
+["FLAME University","Private","Maharashtra"],
+["Azim Premji University","Private","Karnataka"],
+["Krea University","Private","Andhra Pradesh"],
+["Bennett University","Private","Uttar Pradesh"],
+["Jain University","Private","Karnataka"],
+["Amrita Vishwa Vidyapeetham","Private","Tamil Nadu"],
+["SASTRA Deemed University","Private","Tamil Nadu"],
+["SRM University AP","Private","Andhra Pradesh"]
+
+];
+
+
+function renderUniversities(){
+
+    let search=document
+        .getElementById("uniSearch")
+        .value
+        .toLowerCase();
+
+
+    let filtered=universities.filter(u=>
+        u[0].toLowerCase().includes(search)
+    );
+
+
+    document.getElementById("uniGrid").innerHTML=
+
+        filtered.map(u=>`
+
+        <div class="uni">
+
+            <div class="uni-logo">
+                ${u[0].substring(0,2).toUpperCase()}
+            </div>
+
+            <h3>
+                ${u[0]}
+            </h3>
+
+            <p>
+                ${u[1]} · ${u[2]}
+            </p>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   ROADMAPS
+========================================================= */
+
+const roadmaps=[
+
+["💻 Software Engineer",
+["B.Tech CSE / BCA / B.Sc CS","Programming","Projects","Internship","Software Developer","M.Tech / MCA / MS"]],
+
+["🤖 AI / Data",
+["B.Tech AI/DS / B.Sc Data","Python + Statistics","ML Projects","Internship","AI / Data Role","M.Tech / M.Sc / MS"]],
+
+["💰 Finance",
+["B.Com / BBA / Economics","Finance Skills","Internship","Finance Role","CA / CMA / MBA / M.Com"]],
+
+["⚖️ Law",
+["BA LLB / BBA LLB / LLB","Legal Research","Internship","Legal Role","LLM"]],
+
+["🎨 Design",
+["B.Des / BFA","Portfolio","Projects","Internship","Designer / UX Role","M.Des / MBA"]],
+
+["🏥 Healthcare",
+["Healthcare Degree","Practical Training","Registration where required","Professional Role","PG Specialization"]],
+
+["📚 Education",
+["BA B.Ed / B.Sc B.Ed","Teaching Practice","Qualification","Teacher / Education Role","M.Ed / MA"]],
+
+["📈 Management",
+["BBA / B.Com / BA / B.Sc","Business Skills","Internship","Analyst / Management Role","MBA / PGDM"]]
+
+];
+
+
+function renderRoadmaps(){
+
+    document.getElementById("roadGrid").innerHTML=
+
+        roadmaps.map(r=>`
+
+        <div class="road">
+
+            <h3>${r[0]}</h3>
+
+            <div class="path">
+
+                ${r[1].map((x,i)=>`
+
+                    <span class="path-item">
+                        ${x}
+                    </span>
+
+                    ${i<r[1].length-1
+                    ? "<span>→</span>"
+                    : ""}
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   FIND MY CAREER
+========================================================= */
+
+const finderQuestions=[
+
+{
+q:"What kind of activity sounds most interesting?",
+a:[
+["Building an app or solving a coding problem","tech"],
+["Managing money or running a business","business"],
+["Understanding the human body","health"],
+["Creating a design, video or artwork","creative"]
+]
+},
+
+{
+q:"Which subject would you most enjoy studying?",
+a:[
+["Mathematics / Computer Science","tech"],
+["Accountancy / Economics","business"],
+["Biology","health"],
+["Art / Languages / Social Science","humanities"]
+]
+},
+
+{
+q:"Which project would you choose?",
+a:[
+["Create a website","tech"],
+["Create a business plan","business"],
+["Research a health topic","health"],
+["Create a documentary","creative"]
+]
+},
+
+{
+q:"Which workplace sounds interesting?",
+a:[
+["Technology company","tech"],
+["Bank / Business","business"],
+["Hospital","health"],
+["Design / Media studio","creative"]
+]
+},
+
+{
+q:"What kind of problem do you enjoy solving?",
+a:[
+["Technical problems","tech"],
+["Business problems","business"],
+["People / health problems","health"],
+["Creative / social problems","creative"]
+]
+},
+
+{
+q:"Which future project sounds exciting?",
+a:[
+["AI assistant","tech"],
+["Startup","business"],
+["Health awareness project","health"],
+["Film / design project","creative"]
+]
+},
+
+{
+q:"What would you rather learn?",
+a:[
+["Programming","tech"],
+["Investment and finance","business"],
+["Human biology","health"],
+["Design and storytelling","creative"]
+]
+},
+
+{
+q:"Choose a future role that sounds interesting.",
+a:[
+["Software Developer","tech"],
+["Business Analyst","business"],
+["Doctor / Healthcare Professional","health"],
+["Designer / Media Professional","creative"]
+]
+}
+
+];
+
+
+let finderIndex=0;
+
+let finderScores={
+tech:0,
+business:0,
+health:0,
+creative:0,
+humanities:0
+};
+
+
+function startFinder(){
+
+    finderIndex=0;
+
+    finderScores={
+        tech:0,
+        business:0,
+        health:0,
+        creative:0,
+        humanities:0
+    };
+
+    renderFinder();
+
+}
+
+
+function renderFinder(){
+
+    if(finderIndex>=finderQuestions.length){
+
+        showFinderResult();
+
+        return;
+
+    }
+
+
+    let question=finderQuestions[finderIndex];
+
+
+    document.getElementById("finderProgress")
+        .style.width=
+        ((finderIndex)/finderQuestions.length*100)+"%";
+
+
+    document.getElementById("finderQuestion").innerHTML=`
+
+        <div class="finder-question">
+
+            ${finderIndex+1}.
+            ${question.q}
+
+        </div>
+
+
+        ${question.a.map(option=>`
+
+            <button
+                class="finder-option"
+                onclick="answerFinder('${option[1]}')">
+
+                ${option[0]}
+
+            </button>
+
+        `).join("")}
+
+    `;
+
+}
+
+
+function answerFinder(domain){
+
+    finderScores[domain]++;
+
+    finderIndex++;
+
+    renderFinder();
+
+}
+
+
+function showFinderResult(){
+
+    let sorted=
+        Object.entries(finderScores)
+        .sort((a,b)=>b[1]-a[1]);
+
+
+    let names={
+        tech:"Technology",
+        business:"Business & Finance",
+        health:"Healthcare",
+        creative:"Creative & Design",
+        humanities:"Humanities & Social Sciences"
+    };
+
+
+    let suggestions={
+
+        tech:[
+            "B.Tech Computer Science",
+            "BCA",
+            "B.Sc Computer Science",
+            "B.Sc Data Science",
+            "B.Tech AI & Data Science"
+        ],
+
+        business:[
+            "B.Com",
+            "BBA",
+            "BMS",
+            "B.Sc Economics",
+            "Integrated BBA + MBA"
+        ],
+
+        health:[
+            "MBBS",
+            "B.Sc Nursing",
+            "B.Pharm",
+            "BPT",
+            "BDS"
+        ],
+
+        creative:[
+            "B.Des",
+            "BFA",
+            "Animation",
+            "UX/UI",
+            "Film & Media"
+        ],
+
+        humanities:[
+            "BA Psychology",
+            "BA English",
+            "BA Sociology",
+            "BA Journalism"
+        ]
+
+    };
+
+
+    document.getElementById("finderProgress")
+        .style.width="100%";
+
+
+    document.getElementById("finderQuestion").innerHTML=`
+
+        <div class="result-box"
+             style="display:block">
+
+            <h2>
+                🎉 Your career areas to explore
+            </h2>
+
+            <p style="margin:12px 0 20px;color:#667085">
+
+                Based on your answers, these areas may be
+                worth exploring further.
+
+            </p>
+
+
+            <div>
+
+                ${sorted.slice(0,3).map(x=>`
+
+                    <span class="result-pill">
+                        ${names[x[0]]}
+                    </span>
+
+                `).join("")}
+
+            </div>
+
+
+            <h3 style="margin-top:25px">
+                Courses to explore first
+            </h3>
+
+
+            <div style="margin-top:12px">
+
+                ${suggestions[sorted[0][0]].map(x=>`
+
+                    <span class="tag">
+                        ${x}
+                    </span>
+
+                `).join("")}
+
+            </div>
+
+
+            <br>
+
+
+            <button
+                class="btn primary"
+                onclick="startFinder()">
+
+                🔄 Try Again
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderCourses();
+renderCareers();
+renderExams();
+renderUniversities();
+renderRoadmaps();
+startFinder();
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById("courseModal")
+    .addEventListener("click",function(e){
+
+        if(e.target===this){
+            closeCourse();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
