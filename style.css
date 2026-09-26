@@ -1,0 +1,1604 @@
+/* =====================================================
+   CAREERPATH
+   COMPLETE WEBSITE STYLES
+===================================================== */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f6f8fc;
+
+    color: #172033;
+
+    line-height: 1.6;
+
+    transition: 0.3s;
+
+}
+
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    min-height: 70px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 14px 6%;
+
+    background: rgba(255,255,255,0.95);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    color: #2563eb;
+
+    cursor: pointer;
+
+}
+
+
+.logo span,
+.footer-logo span {
+
+    color: #7c3aed;
+
+}
+
+
+.navbar nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+}
+
+
+.navbar nav button {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 9px 12px;
+
+    color: #374151;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    border-radius: 8px;
+
+}
+
+
+.navbar nav button:hover {
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+}
+
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+.section {
+
+    min-height: 85vh;
+
+    padding: 80px 6%;
+
+}
+
+
+.section-title {
+
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+.section-title h2 {
+
+    font-size: clamp(32px, 5vw, 48px);
+
+    margin: 10px 0;
+
+    color: #111827;
+
+}
+
+
+.section-title p {
+
+    color: #6b7280;
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.badge.blue {
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    color: #2563eb;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: calc(100vh - 70px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb 0%,
+            #4f46e5 50%,
+            #7c3aed 100%
+        );
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.hero-content {
+
+    max-width: 950px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(44px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    margin: 22px 0;
+
+    letter-spacing: -2px;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: #fbbf24;
+
+}
+
+
+.hero p {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    font-size: 19px;
+
+    opacity: 0.94;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+
+}
+
+
+.primary-btn,
+.secondary-btn {
+
+    border: none;
+
+    padding: 13px 21px;
+
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.primary-btn {
+
+    background: #f97316;
+
+    color: white;
+
+}
+
+
+.primary-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(249,115,22,0.3);
+
+}
+
+
+.secondary-btn {
+
+    background: white;
+
+    color: #2563eb;
+
+}
+
+
+.secondary-btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =====================================================
+   PATHWAY
+===================================================== */
+
+.pathway {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 70px;
+
+}
+
+
+.pathway div {
+
+    padding: 11px 17px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.13);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    font-weight: 700;
+
+}
+
+
+.pathway span {
+
+    opacity: 0.7;
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-section {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+.stat {
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-right: 1px solid #e5e7eb;
+
+}
+
+
+.stat strong {
+
+    display: block;
+
+    font-size: 34px;
+
+    color: #2563eb;
+
+}
+
+
+.stat span {
+
+    color: #6b7280;
+
+}
+
+
+/* =====================================================
+   STREAMS
+===================================================== */
+
+.stream-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+
+    gap: 22px;
+
+}
+
+
+.stream-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,0.06);
+
+    transition: 0.3s;
+
+}
+
+
+.stream-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.1);
+
+}
+
+
+.big-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.stream-card h3 {
+
+    font-size: 24px;
+
+}
+
+
+.stream-card p {
+
+    color: #6b7280;
+
+    margin: 8px 0 20px;
+
+}
+
+
+.stream-card button {
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.details-box {
+
+    max-width: 950px;
+
+    margin: 45px auto 0;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,0.08);
+
+}
+
+
+.details-box h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    color: #111827;
+
+}
+
+
+.details-box p {
+
+    margin: 12px 0;
+
+}
+
+
+/* =====================================================
+   COURSE SEARCH
+===================================================== */
+
+.course-search {
+
+    max-width: 1100px;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.course-search input,
+.course-search select,
+.college-search input {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: white;
+
+    font-size: 15px;
+
+}
+
+
+.course-search input:focus,
+.course-search select:focus,
+.college-search input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px #dbeafe;
+
+}
+
+
+.course-count {
+
+    max-width: 1100px;
+
+    margin: 20px auto;
+
+    color: #6b7280;
+
+}
+
+
+/* =====================================================
+   COURSE GRID
+===================================================== */
+
+.course-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+.course-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 7px 25px rgba(15,23,42,0.05);
+
+    transition: 0.3s;
+
+}
+
+
+.course-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.1);
+
+}
+
+
+.course-category {
+
+    display: inline-block;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color: #2563eb;
+
+    background: #eff6ff;
+
+    padding: 5px 9px;
+
+    border-radius: 50px;
+
+}
+
+
+.course-card h3 {
+
+    font-size: 22px;
+
+    margin: 13px 0 8px;
+
+}
+
+
+.course-card p {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin: 5px 0;
+
+}
+
+
+.salary {
+
+    color: #059669 !important;
+
+    font-weight: 800;
+
+    margin-top: 15px !important;
+
+}
+
+
+.course-card button {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 11px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   EXAMS
+===================================================== */
+
+.exam-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+.exam-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 7px 25px rgba(15,23,42,0.05);
+
+}
+
+
+.exam-card .exam-icon {
+
+    font-size: 35px;
+
+}
+
+
+.exam-card h3 {
+
+    margin: 10px 0;
+
+}
+
+
+.exam-card p {
+
+    color: #6b7280;
+
+}
+
+
+.exam-tag {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 5px 9px;
+
+    background: #f3f4f6;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   COLLEGES
+===================================================== */
+
+.college-search {
+
+    max-width: 900px;
+
+    margin: 0 auto 30px;
+
+}
+
+
+.college-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+.college-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+}
+
+
+.college-card h3 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.college-card p {
+
+    color: #6b7280;
+
+    margin: 5px 0;
+
+}
+
+
+.college-type {
+
+    display: inline-block;
+
+    background: #ecfdf5;
+
+    color: #047857;
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz-card {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,0.08);
+
+}
+
+
+.progress-container {
+
+    height: 9px;
+
+    background: #e5e7eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 25px;
+
+}
+
+
+#progressBar {
+
+    width: 10%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    transition: 0.3s;
+
+}
+
+
+#questionNumber {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+}
+
+
+.quiz-card h3 {
+
+    font-size: 26px;
+
+    margin: 15px 0 20px;
+
+}
+
+
+.answer-button {
+
+    width: 100%;
+
+    display: block;
+
+    padding: 14px;
+
+    margin: 10px 0;
+
+    border-radius: 10px;
+
+    border: 2px solid #e5e7eb;
+
+    background: #f9fafb;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.answer-button:hover {
+
+    border-color: #2563eb;
+
+}
+
+
+.answer-button.selected {
+
+    background: #dbeafe;
+
+    border-color: #2563eb;
+
+}
+
+
+.quiz-card .primary-btn {
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   QUIZ RESULT
+===================================================== */
+
+.result-card {
+
+    max-width: 900px;
+
+    margin: 30px auto;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+}
+
+
+.result-career {
+
+    padding: 20px;
+
+    margin: 12px 0;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(15,23,42,0.7);
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+}
+
+
+.close-button {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 18px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.modal-title {
+
+    font-size: 35px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.detail-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+}
+
+
+.detail-item {
+
+    background: #f8fafc;
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+}
+
+
+.detail-item strong {
+
+    display: block;
+
+    color: #2563eb;
+
+    margin-bottom: 5px;
+
+}
+
+
+.modal-section {
+
+    margin-top: 25px;
+
+}
+
+
+.modal-section h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.modal-section ul {
+
+    padding-left: 25px;
+
+}
+
+
+/* =====================================================
+   INFORMATION SECTION
+===================================================== */
+
+.information-section {
+
+    padding: 80px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 60px;
+
+    background: #eef2ff;
+
+}
+
+
+.information-section h2 {
+
+    font-size: 42px;
+
+    margin: 10px 0 20px;
+
+}
+
+
+.information-section p {
+
+    color: #64748b;
+
+}
+
+
+.mini-label {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    color: #4f46e5;
+
+    letter-spacing: 1px;
+
+}
+
+
+.steps {
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+.step {
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+}
+
+
+.step span {
+
+    color: #4f46e5;
+
+    font-weight: 900;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background: #111827;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 55px 6%;
+
+}
+
+
+.footer-logo {
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    color: #60a5fa;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+}
+
+
+.footer-links button {
+
+    background: transparent;
+
+    border: none;
+
+    color: #d1d5db;
+
+    cursor: pointer;
+
+}
+
+
+.footer-warning {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+}
+
+
+.copyright {
+
+    margin-top: 25px;
+
+    color: #6b7280;
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark {
+
+    background: #0f172a;
+
+    color: #e5e7eb;
+
+}
+
+
+body.dark .navbar {
+
+    background: #111827;
+
+    border-color: #1f2937;
+
+}
+
+
+body.dark .navbar nav button {
+
+    color: #d1d5db;
+
+}
+
+
+body.dark .section-title h2,
+
+body.dark .details-box h3 {
+
+    color: white;
+
+}
+
+
+body.dark .section-title p {
+
+    color: #94a3b8;
+
+}
+
+
+body.dark .stream-card,
+body.dark .course-card,
+body.dark .exam-card,
+body.dark .college-card,
+body.dark .quiz-card,
+body.dark .result-card,
+body.dark .details-box,
+body.dark .modal-content,
+body.dark .step {
+
+    background: #111827;
+
+    border-color: #1f2937;
+
+}
+
+
+body.dark .course-search input,
+body.dark .course-search select,
+body.dark .college-search input {
+
+    background: #111827;
+
+    color: white;
+
+    border-color: #374151;
+
+}
+
+
+body.dark .course-card p,
+body.dark .college-card p,
+body.dark .exam-card p,
+body.dark .stream-card p {
+
+    color: #94a3b8;
+
+}
+
+
+body.dark .answer-button {
+
+    background: #1f2937;
+
+    color: white;
+
+    border-color: #374151;
+
+}
+
+
+body.dark .information-section {
+
+    background: #1e1b4b;
+
+}
+
+
+body.dark .information-section p {
+
+    color: #a5b4fc;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+
+    .navbar nav {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .stats-section {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .course-search {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .information-section {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .section {
+
+        padding: 60px 5%;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .hero p {
+
+        font-size: 16px;
+
+    }
+
+
+    .pathway {
+
+        margin-top: 45px;
+
+    }
+
+
+    .stats-section {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .stat {
+
+        border-right: none;
+
+        border-bottom: 1px solid #e5e7eb;
+
+    }
+
+
+    .modal-content {
+
+        padding: 25px;
+
+    }
+
+
+    .modal-title {
+
+        font-size: 28px;
+
+    }
+
+}
